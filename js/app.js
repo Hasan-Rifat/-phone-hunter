@@ -8,6 +8,7 @@ const allMobiles = async () => {
     // clear 
     searchMobiles.value = '';
     const mobileBox = document.getElementById('mobileBox');
+    // clear 
     mobileBox.textContent = '';
     if (searchMobilesText === '') {
         const div = document.createElement('div');
@@ -15,7 +16,7 @@ const allMobiles = async () => {
         div.innerHTML = `
         <div class="card">
             <div class="card-body">
-                    <h5 class="card-title">Your writing incorrectly</h5>
+                    <h4 class="card-title">Your writing incorrectly</h4>
             </div>
         </div>
         `;
@@ -29,6 +30,8 @@ const allMobiles = async () => {
     }
 }
 
+// display all mobiles 
+
 const mobilesDisplay = mobiles => {
     const phoneCard = document.getElementById('phone-card');
     phoneCard.textContent = '';
@@ -38,7 +41,7 @@ const mobilesDisplay = mobiles => {
         div.innerHTML = `
         <div class="card">
             <div class="card-body">
-                    <h5 class="card-title">sorry this mobile are not Available</h5>
+                    <h4 class="card-title">sorry this mobile are not Available</h4>
             </div>
         </div>
         `;
@@ -63,6 +66,8 @@ const mobilesDisplay = mobiles => {
     };
 
 };
+
+// mobiles full information 
 
 const phoneSlug = async id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
