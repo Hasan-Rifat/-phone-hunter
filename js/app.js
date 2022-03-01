@@ -2,6 +2,7 @@
 
 
 const allMobiles = async () => {
+    const phoneCard = document.getElementById('phone-card');
     const searchMobiles = document.getElementById('search-mobiles');
     const searchMobilesText = searchMobiles.value;
     // clear 
@@ -9,7 +10,17 @@ const allMobiles = async () => {
     const mobileBox = document.getElementById('mobileBox');
     mobileBox.textContent = '';
     if (searchMobilesText === '') {
-        alert('Your writing incorrectly')
+        const div = document.createElement('div');
+        div.classList.add('col', 'mobile');
+        div.innerHTML = `
+        <div class="card">
+            <div class="card-body">
+                    <h5 class="card-title">Your writing incorrectly</h5>
+            </div>
+        </div>
+        `;
+        phoneCard.appendChild(div);
+        // alert('Your writing incorrectly')
     } else {
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchMobilesText}`;
         const res = await fetch(url);
@@ -21,7 +32,6 @@ const allMobiles = async () => {
 const mobilesDisplay = mobiles => {
     const phoneCard = document.getElementById('phone-card');
     phoneCard.textContent = '';
-    console.log(mobiles)
     if (mobiles[0] == null) {
         const div = document.createElement('div');
         div.classList.add('col', 'mobile');
@@ -64,7 +74,6 @@ const phoneSlug = async id => {
 const displayPhoneDetails = phone => {
     const mobileBox = document.getElementById('mobileBox');
     mobileBox.textContent = '';
-    console.log(phone)
     const div = document.createElement('div');
     div.classList.add('row', 'mobile');
     div.innerHTML = `
