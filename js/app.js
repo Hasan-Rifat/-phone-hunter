@@ -1,6 +1,4 @@
 // search felid 
-
-
 const allMobiles = async () => {
     const phoneCard = document.getElementById('phone-card');
     const searchMobiles = document.getElementById('search-mobiles');
@@ -16,7 +14,7 @@ const allMobiles = async () => {
         div.innerHTML = `
         <div class="card">
             <div class="card-body">
-                    <h4 class="card-title">Your writing incorrectly</h4>
+                <h4 class="card-title">Your writing incorrectly</h4>
             </div>
         </div>
         `;
@@ -79,32 +77,32 @@ const phoneSlug = async id => {
 const displayPhoneDetails = phone => {
     const mobileBox = document.getElementById('mobileBox');
     mobileBox.textContent = '';
+    const others = phone.others? phone.others: 'No Data Found!';
     const div = document.createElement('div');
     div.classList.add('row', 'mobile');
     div.innerHTML = `
-    <div class="col-md-6">
+    <div class="col-md-5">
             <img src="${phone.image}" class="card-img-top images" alt="...">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7">
         <div class="p-4 card rounded-3">
             <div class="card-body">
                 <h1 class="card-title">Brand: ${phone.brand}</h1>
                 <h1 class="card-title">Name: ${phone.name}</h1>
-                <p class="card-text"><strong>Release Date:</strong> ${phone.releaseDate}</p>
+                <p class="card-text"><strong>Release Date:</strong> ${phone.releaseDat? phone.releaseDat: 'No Release Date Found'}</p>
                 <h1>Main Features</h1>
-                <p><strong>Display Size:</strong> ${phone.mainFeatures.displaySize}</p>
-                <p><strong>ChipSet:</strong> ${phone.mainFeatures.chipSet}</p>
-                <p><strong>Memory:</strong> ${phone.mainFeatures.memory}</p>
-                <p><strong>storage:</strong> ${phone.mainFeatures.storage}</p>
-                <p><strong>sensors:</strong> ${phone.mainFeatures.sensors}</p>
-
+                <p><strong>Display Size:</strong> ${phone.mainFeatures.displaySize? phone.mainFeatures.displaySize: 'N/A'}</p>
+                <p><strong>ChipSet:</strong> ${phone.mainFeatures.chipSet? phone.mainFeatures.chipSet: 'N/A'}</p>
+                <p><strong>Memory:</strong> ${phone.mainFeatures.memory? phone.mainFeatures.memory: 'N/A'}</p>
+                <p><strong>storage:</strong> ${phone.mainFeatures.storage? phone.mainFeatures.storage: 'N/A'}</p>
+                <p><strong>sensors:</strong> ${phone.mainFeatures.sensors? phone.mainFeatures.sensors: 'N/A'}</p>
                 <h1>Other Features</h1>
-                <p><strong>Bluetooth Size:</strong> ${phone.others.Bluetooth}</p>
-                <p><strong>GPS:</strong> ${phone.others.GPS}</p>
-                <p><strong>NFC:</strong> ${phone.others.NFC}</p>
-                <p><strong>Radio:</strong> ${phone.others.Radio}</p>
-                <p><strong>USB:</strong> ${phone.others.USB}</p>
-                <p><strong>WLAN:</strong> ${phone.others.WLAN}</p>
+                <p><strong>Bluetooth Size:</strong> ${others.Bluetooth? others.Bluetooth: 'N/A'}</p>
+                <p><strong>GPS:</strong> ${others.GPS? others.GPS: 'N/A'}</p>
+                <p><strong>NFC:</strong> ${others.NFC? others.NFC: 'N/A'}</p>
+                <p><strong>Radio:</strong> ${others.Radio? others.Radio: 'N/A'}</p>
+                <p><strong>USB:</strong> ${others.USB? others.USB: 'N/A'}</p>
+                <p><strong>WLAN:</strong> ${others.WLAN? others.WLAN: 'N/A'}</p>
             </div>
         </div>
     </div>
